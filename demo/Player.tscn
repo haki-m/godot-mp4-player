@@ -1,0 +1,139 @@
+[gd_scene format=3 uid="uid://doyk52bponk1a"]
+
+[ext_resource type="Script" uid="uid://n6sr650d4nnc" path="res://demo/Player.gd" id="1_kg170"]
+[ext_resource type="Script" uid="uid://qrfv77io56w" path="res://addons/MP4Player/MP4VideoPlayer.gd" id="2_tbljk"]
+[ext_resource type="Texture2D" uid="uid://c4slmrdst5n0j" path="res://demo/Icons/play.png" id="3_kkrcx"]
+[ext_resource type="Texture2D" uid="uid://ccdejd2sjcqf7" path="res://demo/Icons/pause.png" id="4_re5ub"]
+[ext_resource type="Texture2D" uid="uid://gjlnqqt8njde" path="res://demo/Icons/right.png" id="5_iy114"]
+[ext_resource type="Texture2D" uid="uid://dc4yl75onuwce" path="res://demo/Icons/left.png" id="6_5uy8p"]
+[ext_resource type="Texture2D" uid="uid://c0mp4hhyfa75c" path="res://demo/Icons/speed.png" id="7_13o2n"]
+
+[node name="Player" type="Control" unique_id=585077553]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_kg170")
+
+[node name="MP4VideoPlayer" type="Control" parent="." unique_id=970257844]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_tbljk")
+video_path = "res://demo/videos/demovideo.mp4"
+autoplay = false
+stretch_mode = 0
+playback_speed = 0.75
+metadata/_custom_type_script = "uid://qrfv77io56w"
+
+[node name="Controls" type="Control" parent="." unique_id=1411022295]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PLAYPAUSE" type="TextureButton" parent="Controls" unique_id=1273374002]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.40625
+anchor_top = 0.8
+anchor_right = 0.59375
+anchor_bottom = 0.96666664
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+toggle_mode = true
+texture_normal = ExtResource("3_kkrcx")
+texture_pressed = ExtResource("4_re5ub")
+stretch_mode = 3
+metadata/_edit_use_anchors_ = true
+
+[node name="SEEKRIGHT" type="Button" parent="Controls" unique_id=1792697807]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.594
+anchor_top = 0.8
+anchor_right = 0.719
+anchor_bottom = 0.9666666
+icon = ExtResource("5_iy114")
+flat = true
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="SEEKLEFT" type="Button" parent="Controls" unique_id=207426293]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.28125
+anchor_top = 0.8
+anchor_right = 0.40625
+anchor_bottom = 0.96666664
+icon = ExtResource("6_5uy8p")
+flat = true
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[node name="TIMELINE" type="HSlider" parent="Controls" unique_id=1995661549]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.03125
+anchor_top = 0.7222222
+anchor_right = 0.96875
+anchor_bottom = 0.76666665
+metadata/_edit_use_anchors_ = true
+
+[node name="TIMELABEL" type="Label" parent="Controls" unique_id=1983363873]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.04
+anchor_top = 0.75
+anchor_right = 0.18
+anchor_bottom = 0.82
+theme_override_font_sizes/font_size = 30
+text = "00:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="DURATIONLABEL" type="Label" parent="Controls" unique_id=1133975881]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.83
+anchor_top = 0.75
+anchor_right = 0.97
+anchor_bottom = 0.82
+theme_override_font_sizes/font_size = 30
+text = "00:00:00"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="PLAYBACKSPEED" type="Button" parent="Controls" unique_id=1716123522]
+layout_mode = 0
+anchor_left = 0.2
+anchor_top = 0.81666666
+anchor_right = 0.27
+anchor_bottom = 0.95
+theme_override_font_sizes/font_size = 20
+text = "1.0x"
+icon = ExtResource("7_13o2n")
+flat = true
+icon_alignment = 1
+expand_icon = true
+metadata/_edit_use_anchors_ = true
+
+[connection signal="toggled" from="Controls/PLAYPAUSE" to="." method="_on_playpause_toggled"]
+[connection signal="pressed" from="Controls/SEEKRIGHT" to="." method="_on_seekright_pressed"]
+[connection signal="pressed" from="Controls/SEEKLEFT" to="." method="_on_seekleft_pressed"]
+[connection signal="drag_ended" from="Controls/TIMELINE" to="." method="_on_timeline_drag_ended"]
+[connection signal="drag_started" from="Controls/TIMELINE" to="." method="_on_timeline_drag_started"]
+[connection signal="value_changed" from="Controls/TIMELINE" to="." method="_on_timeline_value_changed"]
+[connection signal="pressed" from="Controls/PLAYBACKSPEED" to="." method="_on_playbackspeed_pressed"]

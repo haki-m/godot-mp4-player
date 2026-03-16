@@ -1,0 +1,37 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="MP4Player-Demo"
+run/main_scene="uid://doyk52bponk1a"
+config/features=PackedStringArray("4.6", "Mobile")
+boot_splash/stretch_mode=0
+boot_splash/image="uid://4qv4uwuuer6c"
+config/icon="uid://4qv4uwuuer6c"
+
+[display]
+
+window/size/viewport_width=1000
+window/size/viewport_height=600
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/MP4Player/plugin.cfg")
+
+[physics]
+
+3d/physics_engine="Jolt Physics"
+
+[rendering]
+
+rendering_device/driver.windows="d3d12"
+renderer/rendering_method="mobile"
+textures/vram_compression/import_etc2_astc=true
