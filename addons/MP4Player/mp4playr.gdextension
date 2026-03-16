@@ -1,0 +1,7 @@
+[configuration]
+entry_symbol = "mp4ffmpeg_library_init"
+compatibility_minimum = "4.2"
+
+[libraries]
+windows.debug.x86_64 = "res://addons/MP4Player/bin/mp4ffmpeg.dll"
+windows.release.x86_64 = "res://addons/MP4Player/bin/mp4ffmpeg.dll"
