@@ -1,7 +1,7 @@
 # MP4 Video Player for Godot
 
 A ready-to-use MP4 video player addon for Godot with audio playback, seeking, playback speed control, timeline-friendly functions, and display options.
-
+![MP4 Player Cover](https://raw.githubusercontent.com/haki-m/godot-mp4-player/main/addons/MP4Player/assets/cover.png)
 This addon provides a custom node called `MP4VideoPlayer`.
 
 ---
